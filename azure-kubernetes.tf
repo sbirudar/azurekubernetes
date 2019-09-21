@@ -51,6 +51,11 @@ resource "azurerm_kubernetes_cluster" "azure-kub-cluster" {
     os_type         = "Linux"
     os_disk_size_gb = 30
   }
+  
+    service_principal {
+    client_id     = "${var.cid}"
+    client_secret = "${var.cs}"
+  }
 
   tags = {
     Environment = "Production"
